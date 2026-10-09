@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Seydina Mouhammadoul Amine Ndiaye — Fiche de présentation</title>
 <meta name="description" content="Fiche de présentation de Seydina Mouhammadoul Amine Ndiaye, P8 — Urbanisme et Aménagement durable des territoires.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,18 +12,19 @@
 :root{--navy:#0A1F4D;--blue:#1D4ED8;--sky:#60A5FA;--ice:#EAF2FF;--white:#fff;--ink:#3A5A9B;
 --mute:#5876B0;--line:#D6E4FF}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,canvas{max-width:100%}
 body{font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.65;overflow-x:hidden}
 h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.1;letter-spacing:-.02em}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--sky);outline-offset:3px}
 
 /* HERO */
-.hero{position:relative;min-height:100svh;display:grid;align-items:center;background:var(--navy);color:var(--white);overflow:hidden;padding:5rem 1.5rem 7rem}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;align-items:center;background:var(--navy);color:var(--white);overflow:hidden;padding:5.5rem max(1.5rem,env(safe-area-inset-right)) 7rem max(1.5rem,env(safe-area-inset-left))}
 #wave{position:absolute;inset:0;width:100%;height:100%}
 .hero-in{position:relative;max-width:1000px;margin:0 auto;width:100%}
 .badge{display:inline-block;border:1px solid rgba(255,255,255,.3);padding:.35rem .9rem;border-radius:99px;font-size:.9rem;color:#CFE0FF;margin-bottom:1.6rem;backdrop-filter:blur(6px);background:rgba(255,255,255,.06)}
-.hero h1{font-size:clamp(2.6rem,9vw,6.4rem);font-weight:800}
+.hero h1{font-size:clamp(1.9rem,9.5vw,6.4rem);font-weight:800;overflow-wrap:anywhere}
 .hero h1 span{display:block;overflow:hidden}
 .hero h1 span i{display:block;font-style:normal;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
 .hero h1 span:nth-child(2) i{animation-delay:.15s;color:var(--sky)}
@@ -40,7 +41,7 @@ a{color:inherit}
 .brand span::after{content:"";display:block;height:3px;width:100%;margin-top:.2rem;border-radius:3px;background:linear-gradient(90deg,var(--sky),transparent)}
 
 /* SECTIONS */
-section.s{padding:5rem 1.5rem}
+section.s{padding:5rem max(1.5rem,env(safe-area-inset-right)) 5rem max(1.5rem,env(safe-area-inset-left))}
 .wrap{max-width:1000px;margin:0 auto}
 h2{font-size:clamp(1.9rem,5vw,3rem);color:#2563EB;margin-bottom:2.2rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
@@ -62,7 +63,7 @@ h2{font-size:clamp(1.9rem,5vw,3rem);color:#2563EB;margin-bottom:2.2rem}
 .welcome h2{color:var(--white);margin-bottom:1.2rem}
 .welcome p{max-width:36rem;margin:0 auto 1rem;color:#DCE8FF;font-size:1.1rem}
 .welcome .big{font-family:'Bricolage Grotesque',sans-serif;font-size:1.5rem;color:var(--white);font-weight:700}
-footer{padding:2rem 1.5rem;text-align:center;color:var(--mute);font-size:.9rem}
+footer{padding:2rem 1.5rem calc(2rem + env(safe-area-inset-bottom,0px));text-align:center;color:var(--mute);font-size:.9rem}
 
 
 /* GALERIE */
@@ -79,6 +80,19 @@ footer{padding:2rem 1.5rem;text-align:center;color:var(--mute);font-size:.9rem}
 .photos figure.wide .fr{aspect-ratio:4/3}
 @media (max-width:640px){.photos figure:nth-child(2){margin-top:0}}
 
+/* RESPONSIVE */
+@media (min-width:1600px){html{font-size:112.5%}.wrap,.hero-in{max-width:1180px}}
+@media (min-width:2200px){html{font-size:135%}.wrap,.hero-in{max-width:1400px}}
+@media (max-width:640px){
+ section.s{padding-top:3.5rem;padding-bottom:3.5rem}
+ .hero{padding-top:6rem;padding-bottom:6rem}
+ .cta{display:block;text-align:center}
+ .story blockquote{padding-left:1rem}
+ .note{padding:1rem}
+}
+@media (max-width:360px){.badge{font-size:.8rem}.brand span{font-size:1.4rem}}
+@media (max-height:520px) and (orientation:landscape){.hero{padding-top:4.5rem;padding-bottom:5rem}.hero h1{font-size:clamp(1.9rem,7vw,3.4rem)}}
+@media (hover:none){.chip:hover{background:var(--white);color:var(--blue);transform:none}.photos figure:hover img{transform:none}}
 /* REVEAL */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .rv.in{opacity:1;transform:none}
